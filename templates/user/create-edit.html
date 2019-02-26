@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{{define "articles/create-edit.html"}}
 
-</body>
-</html>
+{{template "layout/header"}}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal" method="post" action="/user/store">
+                <input type="hidden" name="id" value="{{.user.ID}}">
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="name" value="{{.user.Name}}" class="form-control"
+                               placeholder="Title">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="age" class="col-sm-2 control-label">Age</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="age" value="{{.article.Age}}" class="form-control"
+                               placeholder="Author">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sex" class="col-sm-2 control-label">Sex</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" name="sex">{{.user.Sex}}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{template "layout/footer"}}
+
+{{end}}

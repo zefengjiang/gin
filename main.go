@@ -11,6 +11,7 @@ import (
 func main() {
 	// 加载配置
 	cfg, err := ini.Load("conf/app.ini")
+	fmt.Println(cfg)
 	if err != nil {
 		fmt.Printf("Fail to read file: %v", err)
 		os.Exit(1)

@@ -1,10 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{{define "articles/index.html"}}
+{{template "layout/header"}}
 
-</body>
-</html>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/user/create" class="btn btn-sm btn-primary">新增</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Sex</th>
+                    <th>CreateTime</th>
+                    <th>UpdateTime</th>
+                    <th>Operation</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{range .list}}
+                <tr>
+                    <td>{{.ID}}</td>
+                    <td>{{.Name}}</td>
+                    <td>{{.Age}}</td>
+                    <td>{{.Sex}}</td>
+                    <td>{{.CreateTime}}</td>
+                    <td>{{.UpdateTime}}</td>
+                    <td>
+                        <a href="/user/edit/{{.ID}}" class="btn btn-sm btn-primary">编辑</a>
+                        <a href="/user/del/{{.ID}}" class="btn btn-sm btn-danger">删除</a>
+                    </td>
+                </tr>
+                {{end}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{{template "layout/footer"}}
+{{ end }}
