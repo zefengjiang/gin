@@ -20,13 +20,14 @@ func (user *User) First(id int) *User {
 
 func (_ *User) List() []User {
 	var user []User
-	orm.Select("id,name,age,sex,createTime,updateTime").Order("id desc").Find(&user)
+	orm.Select("id,name,age,sex,create_time,update_time").Order("id desc").Find(&user)
 	return user
 }
 
 func (_ *User) Insert(name string, age int, sex int) int {
 	createTime := time.Now().Unix()
-	user := &User{Name:name, Age:age, Sex:sex, CreateTime:createTime}
+	updateTime := time.Now().Unix()
+	user := &User{Name:name, Age:age, Sex:sex, CreateTime:createTime, UpdateTime:updateTime}
 	orm.Create(user)
 	return user.ID
 }

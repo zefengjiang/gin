@@ -14,9 +14,9 @@ func Register() *gin.Engine {
 	{
 		v1.GET("/user", user.Index)
 		v1.GET("/user/create", user.Create)
-		v1.GET("/user/:id", user.Edit)
-		v1.DELETE("/article/:id", user.Del)
-		v1.POST("/article/store", user.Store)
+		v1.GET("/user/edit/:id", user.Edit)
+		v1.DELETE("/user/:id", user.Del)
+		v1.POST("/user/store", user.Store)
 	}
 
 	return r
